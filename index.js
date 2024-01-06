@@ -65,11 +65,11 @@ function addNumericSeparator(num, str) {
     return $replace.call(str, sepRegex, '$&_');
 }
 
-var utilInspect = require('./util.inspect');
-var inspectCustom = utilInspect.custom;
-var inspectSymbol = isSymbol(inspectCustom) ? inspectCustom : null;
+// var utilInspect = require('./util.inspect');
+// var inspectCustom = utilInspect.custom;
+var inspectSymbol = null;
 
-module.exports = function inspect_(obj, options, depth, seen) {
+export default function inspect_(obj, options, depth, seen) {
     var opts = options || {};
 
     if (has(opts, 'quoteStyle') && (opts.quoteStyle !== 'single' && opts.quoteStyle !== 'double')) {
